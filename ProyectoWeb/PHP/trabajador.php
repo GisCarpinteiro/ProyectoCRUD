@@ -19,8 +19,8 @@
         
     ?>
 
-  
-    <div>
+    <form action="eliminar.php" method="post">
+    <div >
         <table border="2">
             <tr class="head">
                 <td>#</td>
@@ -41,7 +41,7 @@
                 <td> <input type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
                 <td> <input type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> <select name="hola">  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
-                <td colspan="2">  <button type="submit" name="btnEnviar"> <a href=""> Editar </a>  </button> <button type="submit"> Eliminar</button> </td>
+                <td colspan="2">  <button type="submit" name="btnEditar" value=<?php echo $filas['id_trabajador']?>> <a href=""> Editar </a>  </button> <button type="submit"  name="btnEliminar" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
                     
             </tr>
             <?php 
@@ -67,6 +67,7 @@
             </tr>
         </table>
     </div>
+     </form>
 </body>
 </html>
 
