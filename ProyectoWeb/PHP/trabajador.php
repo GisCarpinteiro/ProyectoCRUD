@@ -70,4 +70,3 @@
 </body>
 </html>
 
-<!-- select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto; consulta para el select -->
