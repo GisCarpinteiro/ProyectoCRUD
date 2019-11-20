@@ -50,7 +50,7 @@
             ?>
             
             <tr>
-                <td> Numero </td>
+                <td> <input type="text" placeholder="id"> </td>
                 <td> <input type="text" placeholder="Nuevo nombre"> </td>
                 <td> <input type="text" placeholder="Nuevo apellido"> </td>
                 <td> <input type="text" placeholder="Nuevo telefono"> </td>
