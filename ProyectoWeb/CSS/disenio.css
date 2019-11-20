@@ -1,0 +1,17 @@
+.formulario{
+    /* background-color: rgba(168, 128, 177, .80); */
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+    background-color: black;
+     margin-bottom: 90%;
+}
+
+h3{
+    margin-top: 80%;
+    color: white;
+}
+
+
+
+

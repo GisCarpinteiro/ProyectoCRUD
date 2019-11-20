@@ -1,0 +1,33 @@
+<!-- pedido
+trabajador
+puesto -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trabajador</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr class="head">
+                <td> Nombre </td>
+                <td> Apellido </td>
+                <td> Telefono </td>
+                <td> Contrasenia </td>
+            </tr>
+            <?php foreach($resultado as $fila):?>
+            <tr class="head">
+                <td> <?php echo $resultado['nombre']?> </td>
+                <td>  <?php echo $resultado['apellido']?> </td>
+                <td>  <?php echo $resultado['telefono']?> </td>
+                <td>  <?php echo $resultado['contrasena']?> </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
