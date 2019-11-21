@@ -21,11 +21,13 @@
         $contraseniaT = $_POST['contraseniaT'.$idUsuario];
         $puestoT = $_POST['puestoT'.$idUsuario];
         echo "nombre ".$nombreT.$apellidoT.$telefonoT.$contraseniaT.$puestoT;
-        $consultaEditarT = "update trabajador set nombre='".$nombreT."', apellido='".$apellidoT."', telefono='".$telefonoT."', contrasena='".$contraseniaT."', id_puesto=".$puestoT;
+        $consultaEditarT = "update trabajador set nombre='".$nombreT."', apellido='".$apellidoT."', telefono='".$telefonoT."', contrasena='".$contraseniaT."', id_puesto=".$puestoT." where id_trabajador=".$idUsuario;
         $resultadoEditarT = mysqli_query($con, $consultaEditarT);
 
         if($resultadoEditarT){
             echo "Se edito la informacion del usuario".$idUsuario;
+            header('Location: trabajador.php');
+
         }
         else echo "Hubo un error al editar la informacion";
     }
