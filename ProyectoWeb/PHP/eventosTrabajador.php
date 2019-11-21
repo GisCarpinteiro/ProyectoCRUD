@@ -16,7 +16,11 @@
     if(isset($_POST['btnEditarT'])){
         $idUsuario = $_POST['btnEditarT'];
         $nombreT = $_POST['nombreT'.$idUsuario];
-        echo "nombre ".$nombreT."idUsuario ".$idUsuario;
+        $apellidoT = $_POST['apellidoT'.$idUsuario];
+        $telefonoT = $_POST['telefonoT'.$idUsuario];
+        $contraseniaT = $_POST['contraseniaT'.$idUsuario];
+        $puestoT = $_POST['puestoT'.$idUsuario];
+        echo "nombre ".$nombreT.$apellidoT.$telefonoT.$contraseniaT.$puestoT;
         // $consultaEditarT = "";
         // $resultadoEditarT = mysqli_query($con, $consultaEditarT);
 
