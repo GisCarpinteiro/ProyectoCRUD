@@ -13,7 +13,7 @@
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
         $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
         //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
-        $conMostrarId = "select id_puesto from puesto";
+        $conMostrarId = "select tipo_puesto from puesto";
         $resultado = mysqli_query($con, $conMostrarT);
         $resId = mysqli_query($con, $conMostrarId);
         //$resultado = mysqli_query($consulta);
@@ -60,7 +60,7 @@
                 <td> 
                     <select name="puestoTN">
                     <?php while($fila=mysqli_fetch_assoc($resId)){?>
-                        <option value=<?php echo $fila['id_puesto']?> > <?php echo $fila['id_puesto']?> </option> 
+                        <option value=<?php echo $fila['tipo_puesto']?> > <?php echo $fila['tipo_puesto']?> </option> 
                     <?php } ?>
                     </select>
                  </td>
