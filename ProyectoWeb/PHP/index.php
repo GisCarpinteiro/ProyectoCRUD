@@ -1,6 +1,3 @@
-
-
-
 <?php
 
     $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
