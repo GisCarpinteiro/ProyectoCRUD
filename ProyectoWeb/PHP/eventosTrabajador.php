@@ -8,8 +8,17 @@
         $resultado = mysqli_query($con, $consultaEliminar);
         
         if($resultado){
-        //update trabajador set eliminado=1 where id_trabajador=1;
-        echo "Se elimino al usuario con id ".$idUsuario;
+            //update trabajador set eliminado=1 where id_trabajador=1;
+            echo'<script type="text/javascript">
+            alert("Se elimino al usuario");
+            window.location.href="trabajador.php";
+            </script>';        
+        }
+        else{
+            echo'<script type="text/javascript">
+                alert("No se pudo eliminar al usuario");
+                window.location.href="trabajador.php";
+                </script>';
         }
     }
 
@@ -34,7 +43,12 @@
                 </script>';
 
         }
-        else echo "Hubo un error al editar la informacion";
+        else {
+            echo'<script type="text/javascript">
+            alert("No se pudo editar la informacion");
+            window.location.href="trabajador.php";
+            </script>';
+        }
     }
 
     if(isset($_POST['btnAgregarT'])){
@@ -44,7 +58,22 @@
         $contraseniaTN = $_POST['contraseniaTN'];
         $puestoTN = $_POST['puestoTN'];
         echo "nombre ".$nombreTN.$apellidoTN.$telefonoTN.$contraseniaTN.$puestoTN;
+        //insert into trabajador values ("Esteban", "Quintero", "335656", "giselbonita", 3, 1, 0);
+        $consultaInsertarT = "insert into values ('".$nombreTN."', '".$apellidoTN."', '".$telefonoTN."', '".$contraseniaTN."', null, ".$apellidoTN.", 0)";
+        $resultadoInsertarT = mysqli_query($con, $consultaInsertarT);
 
+        if($resultadoInsertarT){
+            echo'<script type="text/javascript">
+                alert("Se agrego al usuario");
+                window.location.href="trabajador.php";
+                </script>';
+        }
+        else{
+            echo'<script type="text/javascript">
+                alert("No se pudo agregar al usuario");
+                window.location.href="trabajador.php";
+                </script>';
+        }
     }
 
 ?>
