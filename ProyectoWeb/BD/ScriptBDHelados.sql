@@ -1,34 +1,35 @@
-reate database Helados;
+drop database Helados;
+create database Helados;
 use Helados;
 
 create table Trabajador(nombre varchar(30),
  apellido varchar(30), telefono varchar(10),
- contrasena varchar(15), id_trabajador int,
+ contrasena varchar(15), id_trabajador int AUTO_INCREMENT,
  id_puesto int, eliminado int,
  primary key (id_trabajador)
 );
 
 create table Helado(
-    id_helado int, precio int,
+    id_helado int AUTO_INCREMENT, precio int,
     tipo_helado varchar(20), cantidad int, eliminadoh int, 
     primary key (id_helado)
 );
 
 create table Puesto(
-    id_puesto int, tipo_puesto varchar(20),
+    id_puesto int AUTO_INCREMENT, tipo_puesto varchar(20),
     primary key (id_puesto)
 );
 
 create table Pedido(
     fecha date, hora time, subtotal int,
     total int, id_trabajador int, 
-    id_pedido int, 
+    id_pedido int AUTO_INCREMENT, 
     primary key (id_pedido)
 );
 
 create table Cantidad(
     cantidad int, id_pedido int, id_helado int, 
-    id_cantidad int,
+    id_cantidad int AUTO_INCREMENT,
     primary key (id_cantidad)
 );
 

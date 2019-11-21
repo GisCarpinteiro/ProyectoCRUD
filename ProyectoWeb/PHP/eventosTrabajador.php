@@ -58,21 +58,21 @@
         $contraseniaTN = $_POST['contraseniaTN'];
         $puestoTN = $_POST['puestoTN'];
         echo "nombre ".$nombreTN.$apellidoTN.$telefonoTN.$contraseniaTN.$puestoTN;
-        //insert into trabajador values ("Esteban", "Quintero", "335656", "giselbonita", 3, 1, 0);
-        $consultaInsertarT = "insert into values ('".$nombreTN."', '".$apellidoTN."', '".$telefonoTN."', '".$contraseniaTN."', null, ".$apellidoTN.", 0)";
-        $resultadoInsertarT = mysqli_query($con, $consultaInsertarT);
+        $consultaInsertarT = "insert into trabajador values ('".$nombreTN."', '".$apellidoTN."', '".$telefonoTN."', '".$contraseniaTN."', null, ".$puestoTN.", 0)";
+        $resultadoInsertarT = mysqli_query($con, $consultaInsertarT) or die(mysqli_error($con));
 
-        if($resultadoInsertarT){
-            echo'<script type="text/javascript">
+       if($resultadoInsertarT){
+           echo'<script type="text/javascript">
                 alert("Se agrego al usuario");
                 window.location.href="trabajador.php";
                 </script>';
         }
         else{
-            echo'<script type="text/javascript">
+           echo'<script type="text/javascript">
                 alert("No se pudo agregar al usuario");
                 window.location.href="trabajador.php";
-                </script>';
+            </script>';
+            //echo "No se puedo insertar ".$resultadoInsertarT;
         }
     }
 
