@@ -117,3 +117,6 @@ inner join cantidad on cantidad.id_pedido = pedido.id_pedido where pedido.fecha=
 /*select  sum(cantidad.cantidad) from cantidad inner join pedido on cantidad.id_pedido= pedido.id_pedido where pedido.fecha <= curdate();/*
 
 /*Mostrar select para el insert*/ /*select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto; consulta para el select */ 
+
+-- Mostrar los nombre de puesto /* select puesto.tipo_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto;*/
+-- select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0;

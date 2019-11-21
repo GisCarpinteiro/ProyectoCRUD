@@ -11,7 +11,7 @@
     <?php 
         //include 'conexion.php' ;
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
-        $conMostrarT = "select *from trabajador where eliminado=0";
+        $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
         //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
         $conMostrarId = "select id_puesto from puesto";
         $resultado = mysqli_query($con, $conMostrarT);
@@ -43,7 +43,7 @@
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
-                            <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> 
+                            <option  value = <?php echo $filas['tipo_puesto']?>> <?php echo $filas['tipo_puesto']?> </option> 
                     </select> 
                 </td>
                 <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
