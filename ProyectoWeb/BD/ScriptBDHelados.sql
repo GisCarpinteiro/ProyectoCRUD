@@ -17,14 +17,14 @@ create table Helado(
 
 create table Puesto(
     id_puesto int AUTO_INCREMENT, tipo_puesto varchar(20),
-    primary key (id_puesto)
+    primary key (id_puesto), eliminado int
 );
 
 create table Pedido(
     fecha date, hora time, subtotal int,
     total int, id_trabajador int, 
     id_pedido int AUTO_INCREMENT, 
-    primary key (id_pedido)
+    primary key (id_pedido), eliminado int
 );
 
 create table Cantidad(
@@ -46,11 +46,11 @@ REFERENCES Pedido(id_pedido);
 ALTER TABLE Cantidad ADD FOREIGN KEY (id_helado)
 REFERENCES Helado(id_helado);
 
-INSERT INTO Puesto (id_puesto, tipo_puesto) 
-            values (2, "Cajero");
+INSERT INTO Puesto (id_puesto, tipo_puesto, eliminado) 
+            values (2, "Cajero", 0);
 
-INSERT INTO Puesto (id_puesto, tipo_puesto) 
-            values (1, "Administrador");
+INSERT INTO Puesto (id_puesto, tipo_puesto, eliminado) 
+            values (1, "Administrador", 0);
 
 INSERT INTO Trabajador (nombre, apellido, telefono, 
             contrasena, id_trabajador, id_puesto, eliminado) 
@@ -59,9 +59,9 @@ values ("Jorge", "Davalos", "33188990",
 
 
 INSERT INTO Pedido( fecha, hora, subtotal, total, 
-            id_trabajador, id_pedido) 
+            id_trabajador, id_pedido, eliminado) 
             values ("2019-05-31", "02:00:00", 50, 58,
-            1, 1);
+            1, 1, 0);
 
 INSERT INTO Helado(id_helado, precio, tipo_helado, cantidad, eliminadoh) 
             values (1, 25, "Cono doble", 50, 0);
@@ -88,8 +88,8 @@ INSERT INTO Helado(id_helado, precio, tipo_helado, cantidad, eliminadoh)
     values(4, 10, "Paleta", 50,  0);
 
 
-INSERT INTO Pedido( fecha, hora, subtotal, total, id_trabajador, id_pedido) 
-    values ("2019-06-16", "22:00:00", 60, 70, 1, 2);
+INSERT INTO Pedido( fecha, hora, subtotal, total, id_trabajador, id_pedido, eliminado) 
+    values ("2019-06-16", "22:00:00", 60, 70, 1, 2, 0);
 
 INSERT INTO Cantidad(cantidad, id_pedido, id_helado,
             id_cantidad)
