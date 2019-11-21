@@ -41,7 +41,11 @@
                 <td> <input name=<?php echo 'apellidoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
                 <td> <input name=<?php echo 'telefonoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
-                <td> <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
+                <td> 
+                    <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
+                            <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> 
+                    </select> 
+                </td>
                 <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
             </tr>
 
