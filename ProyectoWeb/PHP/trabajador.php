@@ -19,7 +19,7 @@
         
     ?>
 
-    <form action="eliminar.php" method="post">
+    <form action="eventosTrabajador.php" method="post">
     <div >
         <table border="2">
             <tr class="head">
@@ -36,11 +36,11 @@
             ?>
             <tr >
                 <td><?php echo $filas['id_trabajador'] ?></td>
-                <td> <input name=<?php echo 'nombreT'.$filas['id_trabajador']?> value=<?php echo $filas['nombre']?> placeholder="Nombre"> </td>
-                <td> <input name="apellidoT" type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
-                <td> <input name="telefonoT" type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
-                <td> <input name="contraseniaT" type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
-                <td> <select name="puestoT">  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
+                <td> <input name=<?php echo 'nombreT'.$filas['id_trabajador']?> value=<?php echo $filas['nombre']?> placeholder="Nombre" rquired> </td>
+                <td> <input name=<?php echo 'apellidoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
+                <td> <input name=<?php echo 'telefonoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
+                <td> <input name=name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
+                <td> <select name=<?php echo 'puestoTT'.$filas['id_trabajador']?>>  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
                 <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
             </tr>
 
