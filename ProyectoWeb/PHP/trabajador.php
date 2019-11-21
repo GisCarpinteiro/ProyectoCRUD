@@ -36,25 +36,22 @@
             ?>
             <tr >
                 <td><?php echo $filas['id_trabajador'] ?></td>
-                <td> <input value=<?php echo $filas['nombre']?> placeholder="Nombre"> </td>
-                <td> <input type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
-                <td> <input type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
-                <td> <input type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
-                <td> <select name="hola">  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
-                <td colspan="2">  <button type="submit" name="btnEditar" value=<?php echo $filas['id_trabajador']?>> <a href=""> Editar </a>  </button> <button type="submit"  name="btnEliminar" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
-                    
+                <td> <input name=<?php echo 'nombreT'.$filas['id_trabajador']?> value=<?php echo $filas['nombre']?> placeholder="Nombre"> </td>
+                <td> <input name="apellidoT" type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
+                <td> <input name="telefonoT" type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
+                <td> <input name="contraseniaT" type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
+                <td> <select name="puestoT">  <option  value = <?php echo $filas['id_puesto']?>> <?php echo $filas['id_puesto']?> </option> </select> </td>
+                <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
             </tr>
-            <?php 
-                } 
-                
-            ?>
+
+            <?php } ?>
             
             <tr>
-                <td> <input type="text" placeholder="id"> </td>
-                <td> <input type="text" placeholder="Nuevo nombre"> </td>
-                <td> <input type="text" placeholder="Nuevo apellido"> </td>
-                <td> <input type="text" placeholder="Nuevo telefono"> </td>
-                <td> <input type="text" placeholder="Nueva contrasenia"> </td>
+                <td> <input name="idTN" type="text" placeholder="id"> </td>
+                <td> <input name="nombreTN" type="text" placeholder="Nuevo nombre"> </td>
+                <td> <input name="apellidoTN" type="text" placeholder="Nuevo apellido"> </td>
+                <td> <input name="telefonoTN" type="text" placeholder="Nuevo telefono"> </td>
+                <td> <input name="contraseniaTN" type="text" placeholder="Nueva contrasenia"> </td>
                 <td> 
                     <select>
                     <?php while($fila=mysqli_fetch_assoc($resId)){?>
