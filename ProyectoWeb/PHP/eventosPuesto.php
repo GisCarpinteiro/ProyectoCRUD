@@ -39,4 +39,22 @@
             </script>';
         }
     }
+
+    if(isset($_POST['btnAgregarP'])){
+        $tipo_puestoN = $_POST['nombrePN'];
+        $consultaAgregarP = "insert into puesto values (null, '".$tipo_puestoN."', 0)";
+        $resConsultaAP = mysqli_query($con, $consultaAgregarP);
+        if($resConsultaAP){
+            echo'<script type="text/javascript">
+            alert("Se agrego el puesto");
+            window.location.href="puesto.php";
+            </script>';   
+        }
+        else{
+            echo'<script type="text/javascript">
+            alert("No se pudo agregar el puesto");
+            window.location.href="trabajador.php";
+            </script>';
+        }
+    }
 ?>

@@ -31,8 +31,8 @@
             <?php }?>
             <tr>
                 <td> # </td>
-                <td> <input placeholder="Nombre"> </td>
-                <td> <button> Agregar </button> </td>
+                <td> <input name="nombrePN" placeholder="Nombre"> </td>
+                <td> <button name="btnAgregarP"> Agregar </button> </td>
             </tr>
         </table>
      </div>
