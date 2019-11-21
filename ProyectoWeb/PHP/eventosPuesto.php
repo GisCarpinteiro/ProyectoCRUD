@@ -22,6 +22,21 @@
 
     if(isset($_POST['btnEditarP'])){
         $idPuesto = $_POST['btnEditarP'];
-        //echo "edit = ".$idPuesto;
+        $tipo_puesto = $_POST['nombreP'.$idPuesto];
+        //echo "edit = ".$tipo_puesto;
+        $consultaEditarP = "update puesto set tipo_puesto='".$tipo_puesto."' where id_puesto=".$idPuesto;
+        $resConsultaEP = mysqli_query($con, $consultaEditarP);
+        if($resConsultaEP){
+            echo'<script type="text/javascript">
+            alert("Se modifico el puesto");
+            window.location.href="puesto.php";
+            </script>';   
+        }
+        else{
+            echo'<script type="text/javascript">
+            alert("No se pudo modificar el puesto");
+            window.location.href="trabajador.php";
+            </script>';
+        }
     }
 ?>
