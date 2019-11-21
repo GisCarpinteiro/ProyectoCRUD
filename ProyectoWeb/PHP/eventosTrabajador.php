@@ -34,7 +34,7 @@
         $consultaIdPuesto ="select id_puesto from puesto where tipo_puesto='".$nombrePuesto."'";
         $resP = mysqli_query($con, $consultaIdPuesto);
         while ($puestoT=mysqli_fetch_assoc($resP)){
-            echo "id puesto es ".$puestoT['id_puesto'];
+            //echo "id puesto es ".$puestoT['id_puesto'];
             $consultaEditarT = "update trabajador set nombre='".$nombreT."', apellido='".$apellidoT."', telefono='".$telefonoT."', contrasena='".$contraseniaT."', id_puesto=".$puestoT['id_puesto']." where id_trabajador=".$idUsuario;
             $resultadoEditarT = mysqli_query($con, $consultaEditarT);
 
@@ -63,24 +63,36 @@
         $apellidoTN = $_POST['apellidoTN'];
         $telefonoTN = $_POST['telefonoTN'];
         $contraseniaTN = $_POST['contraseniaTN'];
-        $puestoTN = $_POST['puestoTN'];
-        echo "nombre ".$nombreTN.$apellidoTN.$telefonoTN.$contraseniaTN.$puestoTN;
-        $consultaInsertarT = "insert into trabajador values ('".$nombreTN."', '".$apellidoTN."', '".$telefonoTN."', '".$contraseniaTN."', null, ".$puestoTN.", 0)";
-        $resultadoInsertarT = mysqli_query($con, $consultaInsertarT) or die(mysqli_error($con));
-
-       if($resultadoInsertarT){
-           echo'<script type="text/javascript">
-                alert("Se agrego al usuario");
-                window.location.href="trabajador.php";
-                </script>';
-        }
+        $nombrePuestoN = $_POST['puestoTN']; //puestoTN
+        $consultaIdPuestoN ="select id_puesto from puesto where tipo_puesto='".$nombrePuestoN."'";
+        $resPN = mysqli_query($con, $consultaIdPuestoN);
+        while ($puestoTN=mysqli_fetch_assoc($resPN)){
+            echo "id puesto es ".$puestoTN['id_puesto'];
+            $consultaInsertarT = "insert into trabajador values ('".$nombreTN."', '".$apellidoTN."', '".$telefonoTN."', '".$contraseniaTN."', null, ".$puestoTN['id_puesto'].", 0)";
+            $resultadoInsertarT = mysqli_query($con, $consultaInsertarT) or die(mysqli_error($con));
+            if($resultadoInsertarT){
+                echo'<script type="text/javascript">
+                        alert("Se agrego al usuario");
+                        window.location.href="trabajador.php";
+                        </script>';
+            }
         else{
-           echo'<script type="text/javascript">
+            echo'<script type="text/javascript">
                 alert("No se pudo agregar al usuario");
                 window.location.href="trabajador.php";
-            </script>';
+                </script>';
             //echo "No se puedo insertar ".$resultadoInsertarT;
+            }
         }
+
+
+        //echo "nombre ".$nombreTN.$apellidoTN.$telefonoTN.$contraseniaTN.$puestoTN;
+       
+        
+
+
+
+
     }
 
 ?>
