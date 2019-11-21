@@ -11,10 +11,10 @@
 <body>
     <?php 
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
-        $consultaMostrar = "select *from puesto";
+        $consultaMostrar = "select *from puesto where eliminado=0";
         $resultado = mysqli_query($con, $consultaMostrar);
     ?>
-    <form action="eventosTrabajador.php" method="post">
+    <form action="eventosPuesto.php" method="post">
      <div>
         <table border="2">
             <tr>
@@ -25,8 +25,8 @@
             <?php while($filas = mysqli_fetch_assoc($resultado)) { ?>
             <tr>
                 <td> <?php echo $filas['id_puesto'] ?> </td>
-                <td> <?php echo $filas['tipo_puesto'] ?> </td>
-                <td> <button> Editar </button> <button> Eliminar </button> </td>
+                <td> <input name=<?php echo 'nombreP'.$filas['id_puesto'] ?>  value =<?php echo $filas['tipo_puesto'] ?>> </td>
+                <td> <button value =<?php echo $filas['id_puesto'] ?> name ="btnEditarP" value > Editar </button> <button value =<?php echo $filas['id_puesto'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
             </tr>
             <?php }?>
             <tr>
