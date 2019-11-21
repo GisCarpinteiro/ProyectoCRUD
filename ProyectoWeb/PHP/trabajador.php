@@ -47,20 +47,20 @@
             <?php } ?>
             
             <tr>
-                <td> <input name="idTN" type="text" placeholder="id"> </td>
+                <td> # </td>
                 <td> <input name="nombreTN" type="text" placeholder="Nuevo nombre"> </td>
                 <td> <input name="apellidoTN" type="text" placeholder="Nuevo apellido"> </td>
                 <td> <input name="telefonoTN" type="text" placeholder="Nuevo telefono"> </td>
                 <td> <input name="contraseniaTN" type="text" placeholder="Nueva contrasenia"> </td>
                 <td> 
-                    <select>
+                    <select name="puestoTN">
                     <?php while($fila=mysqli_fetch_assoc($resId)){?>
                         <option value=<?php echo $fila['id_puesto']?> > <?php echo $fila['id_puesto']?> </option> 
                     <?php } ?>
                     </select>
                  </td>
 
-                <td> <button type="submit" > Agregar </button></td>
+                <td> <button name="btnAgregarT" type="submit" > Agregar </button></td>
             </tr>
         </table>
     </div>
