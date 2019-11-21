@@ -12,7 +12,8 @@
         //include 'conexion.php' ;
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
         $conMostrarT = "select *from trabajador where eliminado=0";
-        $conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
+        //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
+        $conMostrarId = "select id_puesto from puesto";
         $resultado = mysqli_query($con, $conMostrarT);
         $resId = mysqli_query($con, $conMostrarId);
         //$resultado = mysqli_query($consulta);
