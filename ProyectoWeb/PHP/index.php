@@ -22,10 +22,9 @@
                             //         window.location.href="trabajador.php";
                             //  </script>';
                             echo'<script type="text/javascript">
-                                     alert("Bienvenido ");
+                                     alert("Bienvenido '.$filas['nombre'].'");
                                      window.location.href="trabajador.php";
                               </script>';
-                            //echo "ok ".$filas['nombre'];
                     }
 
                 }

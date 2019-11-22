@@ -25,13 +25,17 @@
             <?php while($filas = mysqli_fetch_assoc($resultado)) { ?>
             <tr>
                 <td> <?php echo $filas['id_puesto'] ?> </td>
-                <td> <input name=<?php echo 'nombreP'.$filas['id_puesto'] ?>  value =<?php echo $filas['tipo_puesto'] ?>> </td>
+                <td> <input name=<?php echo 'nombreP'.$filas['id_puesto'] ?>  value =<?php echo $filas['tipo_puesto'] ?> required> </td>
                 <td> <button value =<?php echo $filas['id_puesto'] ?> name ="btnEditarP" value > Editar </button> <button value =<?php echo $filas['id_puesto'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
             </tr>
             <?php }?>
+      </div>
+    </form>
+    <form action="eventosPuestos.php" method="post">
+            <div>
             <tr>
                 <td> # </td>
-                <td> <input name="nombrePN" placeholder="Nombre"> </td>
+                <td> <input name="nombrePN" placeholder="Nombre" required> </td>
                 <td> <button name="btnAgregarP"> Agregar </button> </td>
             </tr>
         </table>
