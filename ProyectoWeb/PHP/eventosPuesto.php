@@ -15,7 +15,7 @@
         else{
             echo'<script type="text/javascript">
             alert("No se pudo eliminar el puesto");
-            window.location.href="trabajador.php";
+            window.location.href="puesto.php";
             </script>';
         }
     }
@@ -35,7 +35,7 @@
         else{
             echo'<script type="text/javascript">
             alert("No se pudo modificar el puesto");
-            window.location.href="trabajador.php";
+            window.location.href="puesto.php";
             </script>';
         }
     }
@@ -53,7 +53,7 @@
         else{
             echo'<script type="text/javascript">
             alert("No se pudo agregar el puesto");
-            window.location.href="trabajador.php";
+            window.location.href="puesto.php";
             </script>';
         }
     }
