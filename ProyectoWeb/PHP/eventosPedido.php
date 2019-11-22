@@ -19,7 +19,33 @@
     }
 
     if(isset($_POST['btnEditarP'])){
-
+        $idPedido = $_POST['btnEditarP'];
+        $fechaP = $_POST['fechaP'.$idPedido];
+        $horaP = $_POST['horaP'.$idPedido];
+        $totalP = $_POST['totalP'.$idPedido];
+        $subtotalP = $_POST['subtotalP'.$idPedido];
+        $nombreTP = $_POST['trabajadorP'.$idPedido];
+        //echo "valores".$fechaP.$horaP.$totalP.$subtotalP.$nombreTP;
+        $consultanombre = "select id_trabajador from trabajador where nombre='".$nombreTP."'";
+        $resNombreT = mysqli_query($con, $consultanombre) or die(mysqli_error($con));
+    
+        while($filita=mysqli_fetch_assoc($resNombreT)){
+            $consultaEditarP = "update pedido set fecha='".$fechaP."', hora='".$horaP."', total=".$totalP.", subtotal=".$subtotalP.", id_trabajador=".$filita['id_trabajador']." where id_pedido=".$idPedido;
+            $resEditar =mysqli_query($con, $consultaEditarP);
+            if($resEditar){
+                echo'<script type="text/javascript">
+                alert("Se edito el pedido");
+                window.location.href="pedido.php";
+                </script>';
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("No se pudo editar el pedido");
+                window.location.href="pedido.php";
+                </script>';
+            }
+        }
+        //sacar id_trabajador
     }
 
     if(isset($_POST['btnAgregarP'])){
@@ -32,8 +58,8 @@
         $consultanombre = "select id_trabajador from trabajador where nombre='".$nombreTPN."'";
         $resNT = mysqli_query($con, $consultanombre) or die(mysqli_error($con));
         while($fila=mysqli_fetch_assoc($resNT)){
-            echo "id trabajador".$fila['id_trabajador'];
-          $consultaAP = "insert into pedido values ('".$fecha."', '".$hora."', ".$subtotal.", ".$total.", ".$fila['id_trabajador'].", null, 0)"; //Utilizando inputs
+           //echo "id trabajador".$fila['id_trabajador'];
+           $consultaAP = "insert into pedido values ('".$fecha."', '".$hora."', ".$subtotal.", ".$total.", ".$fila['id_trabajador'].", null, 0)"; //Utilizando inputs
           //$consultaAP = "insert into pedido values (curdate(), time(now()), ".$subtotal.", ".$total.", ".$fila['id_trabajador'].", null, 0)"; //dia y hora actual
            
             $resConsultaAP = mysqli_query($con, $consultaAP)or die(mysqli_error($con));
