@@ -42,8 +42,8 @@
             <tr>
                 <td> # </td>
                 <!-- <td> <input name="fechaPN" placeholder="Fecha"> </td> -->
-                <td> <input type="date" id="txtfecha" name="txtfecha"  value="<?php echo date("Y-n-j"); ?>" required disabled/> </td>
-                <td> <input type="time" id="txtfecha" name="txtfecha"  value="<?php   echo date('h:i:s A');?>" required/> </td>
+                <td> <input type="date" id="txtfecha" name="fechaPN"  value="<?php echo date("Y-n-j"); ?>" required /> </td>
+                <td> <input type="time" id="txtfecha" name="horaPN"  value="<?php   echo date('h:i:s A');?>" required/> </td>
                 <!-- <td> <input name="horaPN" placeholder="Hora"> </td> -->
                 <td> <input name="totalPN" placeholder="Total"> </td>
                 <td> <input name="subtotalPN" placeholder="Subtotal"> </td>
