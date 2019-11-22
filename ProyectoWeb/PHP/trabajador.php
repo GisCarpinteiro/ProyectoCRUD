@@ -43,8 +43,13 @@
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
-                            <option  value = <?php echo $filas['tipo_puesto']?>> <?php echo $filas['tipo_puesto']?> </option> 
+
+                        <?php  while($filita=mysqli_fetch_assoc($resId)){?>
+                                <option  value = <?php echo $filita['tipo_puesto']?>> <?php echo $filita["tipo_puesto"];?> </option> 
+                        <?php } ?>
                     </select> 
+
+
                 </td>
                 <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
             </tr>
