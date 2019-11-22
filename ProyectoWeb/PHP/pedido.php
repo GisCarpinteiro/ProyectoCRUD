@@ -41,12 +41,14 @@
             <?php }?>
             <tr>
                 <td> # </td>
-                <td> <input name="nombrePN" placeholder="Fecha"> </td>
-                <td> <input name="nombrePN" placeholder="Hora"> </td>
-                <td> <input name="nombrePN" placeholder="Total"> </td>
-                <td> <input name="nombrePN" placeholder="Subtotal"> </td>
+                <!-- <td> <input name="fechaPN" placeholder="Fecha"> </td> -->
+                <td> <input type="date" id="txtfecha" name="txtfecha"  value="<?php echo date("Y-n-j"); ?>" required disabled/> </td>
+                <td> <input type="time" id="txtfecha" name="txtfecha"  value="<?php   echo date('h:i:s A');?>" required/> </td>
+                <!-- <td> <input name="horaPN" placeholder="Hora"> </td> -->
+                <td> <input name="totalPN" placeholder="Total"> </td>
+                <td> <input name="subtotalPN" placeholder="Subtotal"> </td>
                 <td> 
-                    <select name="puestoTN">
+                    <select name="nombreTPN">
                     <?php while($fila=mysqli_fetch_assoc($resultadoT)){?>
                         <option value=<?php echo $fila['nombre']?> > <?php echo $fila['nombre']?> </option> 
                     <?php } ?>
