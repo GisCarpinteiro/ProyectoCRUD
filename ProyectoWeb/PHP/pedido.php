@@ -23,30 +23,35 @@
                 <td> # </td>
                 <td> Fecha </td>
                 <td> Hora </td>
-                <td> Total </td>
                 <td> Subtotal </td>
+                <td> Total </td>
                 <td> Trabajador</td>
                 <td> Acciones </td>
             </tr>
             <?php while($filas = mysqli_fetch_assoc($resultado)) { ?>
             <tr>
                 <td> <?php echo $filas['id_pedido'] ?> </td>
-                <td> <input type="date" name=<?php echo 'fechaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['fecha'] ?>> </td>
-                <td> <input type="time" name=<?php echo 'horaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['hora'] ?>> </td>
-                <td> <input type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?>> </td>
-                <td> <input type="number" name=<?php echo 'subtotalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['subtotal'] ?>> </td>
-                <td> <input name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?>> </td>
+                <td> <input type="date" name=<?php echo 'fechaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['fecha'] ?> required> </td>
+                <td> <input type="time" name=<?php echo 'horaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['hora'] ?> required > </td>
+                <td> <input type="number" name=<?php echo 'subtotalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['subtotal'] ?> required> </td>
+                <td> <input type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?>  > </td>
+                <td> <input name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required> </td>
                 <td> <button value =<?php echo $filas['id_pedido'] ?> name ="btnEditarP" value > Editar </button> <button value =<?php echo $filas['id_pedido'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
             </tr>
             <?php }?>
+     </div>
+    </form>
+    <form action="eventosPedido.php" method="post">
+     <div>
             <tr>
                 <td> # </td>
                 <!-- <td> <input name="fechaPN" placeholder="Fecha"> </td> -->
-                <td> <input type="date" id="txtfecha" name="fechaPN"  value="<?php echo date("Y-n-j"); ?>"  /> </td>
-                <td> <input type="time" id="txtfecha" name="horaPN"  value="<?php   echo date('h:i:s A');?>" /> </td>
+                <td> <input type="date" id="txtfecha" name="fechaPN"  value="<?php echo date("Y-n-j"); ?>"  required/> </td>
+                <td> <input type="time" id="txtfecha" name="horaPN"  value="<?php   echo date('h:i:s A');?>" required/> </td>
                 <!-- <td> <input name="horaPN" placeholder="Hora"> </td> -->
-                <td> <input name="totalPN" placeholder="Total"> </td>
-                <td> <input name="subtotalPN" placeholder="Subtotal"> </td>
+                <td> <input type="number" name="subtotalPN" placeholder="Subtotal" required> </td>
+                <td> <input type="number" name="totalPN" placeholder="Total" required disabled> </td>
+
                 <td> 
                     <select name="nombreTPN">
                     <?php while($fila=mysqli_fetch_assoc($resultadoT)){?>
