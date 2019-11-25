@@ -122,11 +122,26 @@
                 $nombre = $usuario_gift->appendChild($nombre);
                 $apellido = new domelement("apellido",$usuario['apellido']);
                 $apellido = $usuario_gift->appendChild($apellido);
-                
+                $telefono = new domelement("telefono",$usuario['telefono']);
+                $telefono = $usuario_gift->appendChild($apellido);
+                $contrasena = new domelement("contrasena",$usuario['contrasena']);
+                $contrasena = $usuario_gift->appendChild($apellido);
             }
          
         
         $trabajador->save("../XML/trabajador.xml");
-        $trabajador = simplexml_load_file("trabajador.xml");
+        // $trabajador = simplexml_load_file("trabajador.xml");
+        $trabajadorXml = "../XML/trabajador.xml";
+        $trabajadorXsl = "../XSL/trabajador.xsl";
+        
+        $doc = new DOMDocument();
+        $xsl = new XSLTProcessor();
+
+        $doc->load($trabajadorXsl);
+        $xsl->importStyleSheet($doc);
+
+
+        $doc->load($trabajadorXml);
+        echo $xsl->transformToXML($doc);
     }
 ?>
