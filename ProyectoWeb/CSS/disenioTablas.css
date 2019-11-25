@@ -49,6 +49,10 @@ table{
     top: 5%;
 }
 
+.puesto{
+    margin-left: 40%;
+}
+
 input{
     border-color: transparent;
     text-align: center;

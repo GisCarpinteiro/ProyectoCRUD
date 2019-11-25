@@ -58,5 +58,14 @@
         }
     }
 
+    if(isset($_POST['btnJson'])){
+        $consultaMostrar = " select id_puesto, tipo_puesto from puesto where eliminado=0;";
+        $usuarios = mysqli_query ($con, $consultaMostrar);
+        foreach($usuarios as $usuario){
+            $usuario = json_encode($usuario);
+            echo $usuario."<br>";
+        }
+
+    }
     
 ?>
