@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../CSS/disenioTablas.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <title>Pedido</title>
     
 </head>
@@ -17,7 +19,7 @@
         $resultado = mysqli_query($con, $consultaMostrar);
         $resultadoT = mysqli_query($con, $consultaMostrarT);
     ?>
-    <form action="eventosPuesto.php" method="post">
+    <form action="eventosPedido.php" method="post">
         <ul class="opciones"> 
             <li> <button name="btnJson" type="submit" > <b> JSON </b> </button> </li>
             <li> <button name="btnJson" type="submit" >XML </button> </li>
@@ -27,6 +29,10 @@
 
     <form action="eventosPedido.php" method="post">
      <div class="tabla">
+     <img src="../img/previous.png" id="regresar"  width="40" height="40" title="Regresar">
+        <center>
+         <h1> Pedido </h1>
+
         <table border="2">
             <tr class="header">
                 <td> &nbsp;Id&nbsp; </td>
@@ -71,7 +77,15 @@
                 <td> <button name="btnAgregarP" id="agregar"> Agregar </button> </td>
             </tr>
         </table>
+        </center>
      </div>
     </form>
+    <script> 
+        $('#regresar').click(function(){
+            location.href ="../menu.html";
+        })
+       
+
+    </script>
 </body>
 </html>

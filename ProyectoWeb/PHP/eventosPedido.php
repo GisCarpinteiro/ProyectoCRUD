@@ -78,4 +78,13 @@
         }
     }
 
+    if(isset($_POST['btnJson'])){
+        $consultaMostrar = "select pedido.fecha, pedido.hora, pedido.subtotal, pedido.total, pedido.id_trabajador, pedido.id_pedido, trabajador.nombre from pedido inner join trabajador on pedido.id_trabajador = trabajador.id_trabajador where pedido.eliminado = 0";
+        $usuarios = mysqli_query ($con, $consultaMostrar);
+        foreach($usuarios as $usuario){
+            $usuario = json_encode($usuario);
+            echo $usuario."<br>";
+        }
+
+    }
 ?>
