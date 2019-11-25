@@ -62,16 +62,16 @@
                 <td> <input id="total" type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?> readonly > </td>
                 
                 <td> 
-                    <select name="name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?> ">
+                    <select name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>>
                         <?php 
                                 $verTE = "select eliminado from trabajador where id_trabajador=".$filas['id_trabajador'];
                                 $verTrabajadorE = mysqli_query($con, $verTE);
                                 while($uno = mysqli_fetch_assoc($verTrabajadorE)){
                                     if($uno['eliminado']==0){
-                                        echo "<option value=0> ".$filas['nombre']." </option>";
+                                        echo '<option value="0"> '.$filas['nombre'].'</option>';
                                     }
                                     else
-                                        echo "<option value=0> ND </option>";
+                                        echo '<option value="0"> ND </option>';
 
                                 }
                         ?>

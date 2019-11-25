@@ -25,13 +25,16 @@
         $totalP = $_POST['totalP'.$idPedido];
         $subtotalP = $_POST['subtotalP'.$idPedido];
         $nombreTP = $_POST['trabajadorP'.$idPedido];
+        // echo "nombre trabajador ".$nombreTP;
         //echo "valores".$fechaP.$horaP.$totalP.$subtotalP.$nombreTP;
+        
         $consultanombre = "select id_trabajador from trabajador where nombre='".$nombreTP."'";
         $resNombreT = mysqli_query($con, $consultanombre) or die(mysqli_error($con));
     
         while($filita=mysqli_fetch_assoc($resNombreT)){
             $consultaEditarP = "update pedido set fecha='".$fechaP."', hora='".$horaP."', total=".$totalP.", subtotal=".$subtotalP.", id_trabajador=".$filita['id_trabajador']." where id_pedido=".$idPedido;
             $resEditar =mysqli_query($con, $consultaEditarP);
+            
             if($resEditar){
                 echo'<script type="text/javascript">
                 alert("Se edito el pedido");
