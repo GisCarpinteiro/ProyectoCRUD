@@ -45,7 +45,8 @@
             </tr>
             <?php 
                 while($filas = mysqli_fetch_assoc($resultado)) { 
-                
+                    $conSelect = "select nombre as nombreT from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=".$filas['id_trabajador']." ) and eliminado=0";
+                    $resconSelect = mysqli_query($con, $conSelect);
             ?>
             <tr>
                 <td> <?php echo $filas['id_pedido'] ?> </td>
@@ -62,27 +63,24 @@
                 
                 <td> 
                     <select name="name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?> ">
-                   <?Php 
-                        $verTE = "select eliminado from trabajador where id_trabajador=".$filas['id_trabajador'];
-                        $verTrabajadorE = mysqli_query($con, $verTE);
-                        while($uno = mysqli_fetch_assoc($verTrabajadorE)){
-                            if($uno['eliminado']==0){
-                                echo "<option value=0> ".$filas['nombre']." </option>";
-                            }
-                            else
-                                echo "<option value=0> ND </option>";
+                        <?php 
+                                $verTE = "select eliminado from trabajador where id_trabajador=".$filas['id_trabajador'];
+                                $verTrabajadorE = mysqli_query($con, $verTE);
+                                while($uno = mysqli_fetch_assoc($verTrabajadorE)){
+                                    if($uno['eliminado']==0){
+                                        echo "<option value=0> ".$filas['nombre']." </option>";
+                                    }
+                                    else
+                                        echo "<option value=0> ND </option>";
 
-                        }
-                   ?>
-                    <!-- <?php
-                        $conSelect = "select nombre  as nombret from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=".$filas['id_trabajador']." )";
-                        $resconSelect = mysqli_query($con, $conSelect);
-
-                        while($f = mysqli_fetch_assoc($resconSelect)){ 
-
-                        }
-                        
-                    ?> -->
+                                }
+                        ?>
+                      
+                       <?php while($f = mysqli_fetch_assoc($resconSelect)){ ?>
+                            <option> <?php echo $f['nombreT']?> </option>
+                        <?php } ?>
+                    </select>
+                    
                 <!-- <input  name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required >  -->
                 </td>
                 <td> <button value =<?php echo $filas['id_pedido'] ?> name ="btnEditarP" id="editar" > &nbsp;&nbsp;Editar&nbsp;&nbsp; </button> <button id="eliminar" value =<?php echo $filas['id_pedido'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
@@ -103,13 +101,9 @@
 
                 <td> 
                     <select name="nombreTPN">
-                    <?php 
-                        while($fila=mysqli_fetch_assoc($resultadoT)){
-
-
-                    ?>
+                    <?php while($fila=mysqli_fetch_assoc($resultadoT)){ ?>
                         <option value=<?php echo $fila['nombre']?> > <?php echo $fila['nombre']?> </option> 
-                    <?php } ?>
+                    <?php } ?> 
                     </select>
                  </td>
                 <td> <button name="btnAgregarP" id="agregar"> Agregar </button> </td>
