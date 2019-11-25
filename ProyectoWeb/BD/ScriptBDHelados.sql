@@ -121,3 +121,5 @@ inner join cantidad on cantidad.id_pedido = pedido.id_pedido where pedido.fecha=
 -- Mostrar los nombre de puesto /* select puesto.tipo_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto;*/
 select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0;
 -- select pedido.fecha, pedido.hora, pedido.subtotal, pedido.total, pedido.id_trabajador, pedido.id_pedido, trabajador.nombre from pedido inner join trabajador on pedido.id_trabajador = trabajador.id_trabajador;
+--contrario inner
+select tipo_puesto from puesto where id_puesto not in(select id_puesto=1 from trabajador);

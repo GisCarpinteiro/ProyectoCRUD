@@ -19,7 +19,7 @@
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
         $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
         //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
-        $conMostrarId = "select tipo_puesto from puesto";
+        $conMostrarId = "select tipo_puesto from puesto where eliminado=0";
         $resultado = mysqli_query($con, $conMostrarT);
         $resId = mysqli_query($con, $conMostrarId);
         //$resultado = mysqli_query($consulta);
@@ -52,6 +52,9 @@
             </tr>
             <?php 
                 while ($filas=mysqli_fetch_assoc($resultado)){
+                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto=1 from trabajador)";
+                    $res = mysqli_query($con, $consultaTp);
+
             ?>
             <tr >
                 <td><?php echo $filas['id_trabajador'] ?></td>
@@ -61,10 +64,10 @@
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
-
-                        <?php  while($filita=mysqli_fetch_assoc($resId)){?>
-                                <option  value = <?php echo $filita['tipo_puesto']?>> <?php echo $filita["tipo_puesto"];?> </option> 
+                        <?php while($f=mysqli_fetch_assoc($res)) { ?>
+                                <option> <?php echo $f["tp"]?> </option> 
                         <?php } ?>
+
                     </select> 
 
 
