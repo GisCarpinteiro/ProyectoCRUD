@@ -1,18 +1,22 @@
 #editar{
-    background-color: #5BC1D6;
+    background-color: #78B6DF ;
     border-color: transparent;
+    /* color: white; */
+    font-weight: bold;
 }
 
 #eliminar{
-    background-color: #D65B91;
+    background-color: #AE69BF   ;
     border-color: transparent;
-
+    /* color: white; */
+    font-weight: bold;
 }
 
 #agregar{
-    background-color: #24BC78;
+    background-color: #DF78C3;
     border-color: transparent;
-
+    /* color: white; */
+    font-weight: bold;
 }
 
 body{
