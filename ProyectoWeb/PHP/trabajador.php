@@ -17,7 +17,7 @@
     <?php 
         //include 'conexion.php' ;
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
-        $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
+        $conMostrarT = "select puesto.tipo_puesto, trabajador.id_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0;";
         //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
         $conMostrarId = "select tipo_puesto from puesto where eliminado=0";
         $resultado = mysqli_query($con, $conMostrarT);
@@ -52,7 +52,7 @@
             </tr>
             <?php 
                 while ($filas=mysqli_fetch_assoc($resultado)){
-                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto=1 from trabajador)";
+                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=".$filas['id_trabajador'].")";
                     $res = mysqli_query($con, $consultaTp);
 
             ?>

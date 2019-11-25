@@ -123,3 +123,4 @@ select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.te
 -- select pedido.fecha, pedido.hora, pedido.subtotal, pedido.total, pedido.id_trabajador, pedido.id_pedido, trabajador.nombre from pedido inner join trabajador on pedido.id_trabajador = trabajador.id_trabajador;
 --contrario inner
 select tipo_puesto from puesto where id_puesto not in(select id_puesto=1 from trabajador);
+--select tipo_puesto from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=2); select este
