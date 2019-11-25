@@ -105,4 +105,28 @@
         }
 
     }
+
+    if(isset($_POST['btnXml'])){
+        $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
+        $usuarios = mysqli_query ($con, $conMostrarT);
+        $trabajador = new domdocument("1.0");
+        $raiz = new domelement("trabajadores");
+        $raiz = $trabajador->appendChild($raiz);
+
+       
+            foreach ($usuarios as $usuario){
+                $usuario_gift = new domelement("trabajador");
+                $usuario_gift = $raiz->appendChild($usuario_gift);
+                $usuario_gift -> setAttribute("id",$usuario['id_trabajador']); 
+                $nombre = new DOMElement("nombre",$usuario['nombre']);
+                $nombre = $usuario_gift->appendChild($nombre);
+                $apellido = new domelement("apellido",$usuario['apellido']);
+                $apellido = $usuario_gift->appendChild($apellido);
+                
+            }
+         
+        
+        $trabajador->save("../XML/trabajador.xml");
+        $trabajador = simplexml_load_file("trabajador.xml");
+    }
 ?>
