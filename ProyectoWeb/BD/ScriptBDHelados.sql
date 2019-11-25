@@ -124,3 +124,5 @@ select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.te
 --contrario inner
 select tipo_puesto from puesto where id_puesto not in(select id_puesto=1 from trabajador);
 --select tipo_puesto from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=2); select este
+--consulta para select de trabajadores en pedido
+select nombre from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=1);

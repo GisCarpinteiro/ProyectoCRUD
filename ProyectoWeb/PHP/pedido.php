@@ -43,7 +43,10 @@
                 <td> Trabajador</td>
                 <td> Acciones </td>
             </tr>
-            <?php while($filas = mysqli_fetch_assoc($resultado)) { ?>
+            <?php 
+                while($filas = mysqli_fetch_assoc($resultado)) { 
+                $conSelect = "select nombre  as nombret from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=".$filas['id_trabajador']." )";
+            ?>
             <tr>
                 <td> <?php echo $filas['id_pedido'] ?> </td>
                 <td> <input type="date" name=<?php echo 'fechaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['fecha'] ?> required> </td>
@@ -71,12 +74,16 @@
                 <td> <input type="date" id="txtfecha" name="fechaPN"  value="<?php echo date("Y-n-j"); ?>"  required/> </td>
                 <td> <input type="time" id="txtfecha" name="horaPN"  value="<?php   echo date('h:i:s A');?>" required/> </td>
                 <!-- <td> <input name="horaPN" placeholder="Hora"> </td> -->
-                <td> <input type="number" name="subtotalPN" placeholder="Subtotal" required> </td>
-                <td> <input type="number" name="totalPN" placeholder="Total" required> </td>
+                <td> <input id="subtotalN" type="number" name="subtotalPN" placeholder="Subtotal" required> </td>
+                <td> <input id="totalN" type="number" name="totalPN" placeholder="Total" readonly> </td>
 
                 <td> 
                     <select name="nombreTPN">
-                    <?php while($fila=mysqli_fetch_assoc($resultadoT)){?>
+                    <?php 
+                        while($fila=mysqli_fetch_assoc($resultadoT)){
+
+
+                    ?>
                         <option value=<?php echo $fila['nombre']?> > <?php echo $fila['nombre']?> </option> 
                     <?php } ?>
                     </select>
@@ -93,11 +100,18 @@
         })
 
         $('#subtotal').change(function(){
+            var nombre = $('#subtotal').attr("name");
+            alert("name " + nombre);
             var subtotal = $('#subtotal').val();
             var total = parseFloat(subtotal) + parseFloat(subtotal * .16);
             $('#total').val(total);
         })
        
+        $('#subtotalN').change(function(){
+            var subtotal = $('#subtotalN').val();
+            var total = parseFloat(subtotal) + parseFloat(subtotal * .16);
+            $('#totalN').val(total);
+        })
 
     </script>
 </body>

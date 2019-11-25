@@ -96,7 +96,7 @@
                 <td> <input type="text" name="nombreTN" type="text" placeholder="Nuevo nombre"> </td>
                 <td> <input type="text" name="apellidoTN" type="text" placeholder="Nuevo apellido"> </td>
                 <td> <input type="text" name="telefonoTN" type="text" placeholder="Nuevo telefono"> </td>
-                <td> <input type="text" name="contraseniaTN" type="text" placeholder="Nueva contrasenia"> </td>
+                <td> <input type="text" name="contraseniaTN" type="text" placeholder="Nueva contraseña"> </td>
                 <td> 
                     <select name="puestoTN">
                     <?php while($fila=mysqli_fetch_assoc($resId)){?>
