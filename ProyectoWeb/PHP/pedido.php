@@ -48,9 +48,16 @@
                 <td> <?php echo $filas['id_pedido'] ?> </td>
                 <td> <input type="date" name=<?php echo 'fechaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['fecha'] ?> required> </td>
                 <td> <input type="time" name=<?php echo 'horaP'.$filas['id_pedido'] ?>  value =<?php echo $filas['hora'] ?> required > </td>
-                <td> <input type="number" name=<?php echo 'subtotalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['subtotal'] ?> required> </td>
-                <td> <input type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?>  > </td>
-                <td> <input name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required> </td>
+                <td> <input id="subtotal" type="number" name=<?php echo 'subtotalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['subtotal'] ?> required> </td>
+                <!-- <?php 
+                    $subtotal = $filas['subtotal'];
+                    $total = $subtotal + ($subtotal*.16);
+                    echo '<td> <input type="number" name= "totalP"'.$filas["id_pedido"].' value ='.$total.' readonly > </td>';
+
+                ?> -->
+                <td> <input id="total" type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?> readonly > </td>
+                
+                <td> <input  name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required > </td>
                 <td> <button value =<?php echo $filas['id_pedido'] ?> name ="btnEditarP" id="editar" > &nbsp;&nbsp;Editar&nbsp;&nbsp; </button> <button id="eliminar" value =<?php echo $filas['id_pedido'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
             </tr>
             <?php }?>
@@ -65,7 +72,7 @@
                 <td> <input type="time" id="txtfecha" name="horaPN"  value="<?php   echo date('h:i:s A');?>" required/> </td>
                 <!-- <td> <input name="horaPN" placeholder="Hora"> </td> -->
                 <td> <input type="number" name="subtotalPN" placeholder="Subtotal" required> </td>
-                <td> <input type="number" name="totalPN" placeholder="Total" required disabled> </td>
+                <td> <input type="number" name="totalPN" placeholder="Total" required> </td>
 
                 <td> 
                     <select name="nombreTPN">
@@ -83,6 +90,12 @@
     <script> 
         $('#regresar').click(function(){
             location.href ="../menu.html";
+        })
+
+        $('#subtotal').change(function(){
+            var subtotal = $('#subtotal').val();
+            var total = parseFloat(subtotal) + parseFloat(subtotal * .16);
+            $('#total').val(total);
         })
        
 
