@@ -52,7 +52,7 @@
             </tr>
             <?php 
                 while ($filas=mysqli_fetch_assoc($resultado)){
-                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=".$filas['id_trabajador'].")";
+                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=".$filas['id_trabajador'].") and eliminado=0";
                     $res = mysqli_query($con, $consultaTp);
 
             ?>
