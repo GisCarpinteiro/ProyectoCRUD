@@ -1,5 +1,6 @@
 <?php 
     $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
+    //echo "hola";
 
 
     if(isset($_POST['btnEliminarT'])){
@@ -85,7 +86,7 @@
             }
         }
 
-
+     
         //echo "nombre ".$nombreTN.$apellidoTN.$telefonoTN.$contraseniaTN.$puestoTN;
        
         
@@ -95,4 +96,13 @@
 
     }
 
+    if(isset($_POST['btnJson'])){
+        $conMostrarT = "select puesto.tipo_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
+        $usuarios = mysqli_query ($con, $conMostrarT);
+        foreach($usuarios as $usuario){
+            $usuario = json_encode($usuario);
+            echo $usuario."<br>";
+        }
+
+    }
 ?>

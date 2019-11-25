@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../CSS/disenioTablas.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
     <title>Trabajador</title>
 </head>
 <body>
+
+
     <?php 
         //include 'conexion.php' ;
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
@@ -19,18 +25,30 @@
         //$resultado = mysqli_query($consulta);
         
     ?>
+        <form action="eventosTrabajador.php" method="post">
+        <ul class="opciones"> 
+            <li> <button name="btnJson" type="submit" > <b> JSON </b> </button> </li>
+            <li> <button name="btnJson" type="submit" >XML </button> </li>
+            <li> <button name="btnJson" type="submit" >XSL </button> </li>
+        </ul>
+        </form>
 
     <form action="eventosTrabajador.php" method="post">
-    <div >
+    <div class="tabla">
+        
+        <img src="../img/previous.png" id="regresar"  width="40" height="40" title="Regresar">
+
+        <center>
+        <h1> Trabajador </h1>
         <table border="2">
             <tr class="head">
-                <td>#</td>
+                <td> &nbsp;Id&nbsp; </td>
                 <td> Nombre </td>
                 <td> Apellido </td>
-                <td> Telefono </td>
-                <td> Contrasenia </td>
+                <td> Teléfono </td>
+                <td> Contraseña </td>
                 <td> Puesto </td>
-                <td> Acciones </td>
+                <td colspan="2"> Acciones </td>
             </tr>
             <?php 
                 while ($filas=mysqli_fetch_assoc($resultado)){
@@ -51,7 +69,7 @@
 
 
                 </td>
-                <td colspan="2">  <button type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> Editar </button> <button type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
+                <td colspan="2">  <button id="editar" type="submit" name="btnEditarT" value=<?php echo $filas['id_trabajador']?>> &nbsp;&nbsp;Editar&nbsp;&nbsp; </button> <button id="eliminar" type="submit"  name="btnEliminarT" value=<?php echo $filas['id_trabajador']?>> Eliminar</button> </td>
             </tr>
 
             <?php } ?>
@@ -70,11 +88,23 @@
                     </select>
                  </td>
 
-                <td> <button name="btnAgregarT" type="submit" > Agregar </button></td>
+                <td colspan="2"> <button id="agregar" name="btnAgregarT" type="submit" > Agregar </button></td>
+
             </tr>
         </table>
+        </center>
+        
+
     </div>
-     </form>
+
+    </form>
+     <script> 
+        $('#regresar').click(function(){
+            location.href ="../menu.html";
+        })
+       
+
+    </script>
 </body>
 </html>
 

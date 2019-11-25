@@ -23,8 +23,8 @@
                             //  </script>';
                             echo'<script type="text/javascript">
                                      alert("Bienvenido '.$filas['nombre'].'");
-                                     window.location.href="trabajador.php";
-                              </script>';
+                                     window.location.href="../menu.html";
+                                </script>';
                     }
 
                 }

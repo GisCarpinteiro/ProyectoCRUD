@@ -1,0 +1,97 @@
+#editar{
+    background-color: #5BC1D6;
+    border-color: transparent;
+}
+
+#eliminar{
+    background-color: #D65B91;
+    border-color: transparent;
+
+}
+
+#agregar{
+    background-color: #24BC78;
+    border-color: transparent;
+
+}
+
+body{
+    background: url(../img/fondo-degradado.png) no-repeat center top;
+    background-size: cover;
+}
+
+li{
+    display: inline;
+} 
+
+table{
+    background-color: black;
+    top: 10%;
+    color: white;
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 1%;
+    text-align: center;
+    border-color: cornflowerblue;
+
+}
+
+.tabla{
+    position: fixed;
+    width: 110%;
+    height: 90%;
+    margin-left: -1%;
+    background-color: black;
+    top: 5%;
+}
+
+input{
+    border-color: transparent;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+select{
+    /* border-color: cornflowerblue; */
+    border-color: transparent;
+
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+#regresar{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+}
+
+.opciones button{
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+.opciones button:hover{
+    color: black;
+}
+
+.opciones {
+    margin-left: 85%;
+    margin-top: 5px;
+}
+
+h1{
+    color: white;
+    font-family: 'Lobster', cursive;
+    margin-left: -3%;
+
+}
+
+.head{
+    font-weight: bold;
+}
