@@ -52,7 +52,7 @@
             </tr>
             <?php 
                 while ($filas=mysqli_fetch_assoc($resultado)){
-                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=".$filas['id_trabajador'].") and eliminado=0";
+                    $consultaTp = "select tipo_puesto as tp from puesto where id_puesto not in(select id_puesto from trabajador where id_trabajador=".$filas['id_trabajador'].") and eliminado=0    ";
                     $res = mysqli_query($con, $consultaTp);
 
             ?>
@@ -64,6 +64,8 @@
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
+                        <option value=0> <?php echo $filas["tipo_puesto"]?>   </option>
+
                         <?php while($f=mysqli_fetch_assoc($res)) { ?>
                                 <option> <?php echo $f["tp"]?> </option> 
                         <?php } ?>
