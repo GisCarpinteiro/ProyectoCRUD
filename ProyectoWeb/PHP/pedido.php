@@ -45,7 +45,7 @@
             </tr>
             <?php 
                 while($filas = mysqli_fetch_assoc($resultado)) { 
-                $conSelect = "select nombre  as nombret from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=".$filas['id_trabajador']." )";
+                
             ?>
             <tr>
                 <td> <?php echo $filas['id_pedido'] ?> </td>
@@ -60,7 +60,31 @@
                 ?> -->
                 <td> <input id="total" type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?> readonly > </td>
                 
-                <td> <input  name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required > </td>
+                <td> 
+                    <select name="name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?> ">
+                   <?Php 
+                        $verTE = "select eliminado from trabajador where id_trabajador=".$filas['id_trabajador'];
+                        $verTrabajadorE = mysqli_query($con, $verTE);
+                        while($uno = mysqli_fetch_assoc($verTrabajadorE)){
+                            if($uno['eliminado']==0){
+                                echo "<option value=0> ".$filas['nombre']." </option>";
+                            }
+                            else
+                                echo "<option value=0> ND </option>";
+
+                        }
+                   ?>
+                    <!-- <?php
+                        $conSelect = "select nombre  as nombret from trabajador where id_trabajador not in(select id_trabajador from pedido where id_trabajador=".$filas['id_trabajador']." )";
+                        $resconSelect = mysqli_query($con, $conSelect);
+
+                        while($f = mysqli_fetch_assoc($resconSelect)){ 
+
+                        }
+                        
+                    ?> -->
+                <!-- <input  name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>  value =<?php echo $filas['nombre'] ?> required >  -->
+                </td>
                 <td> <button value =<?php echo $filas['id_pedido'] ?> name ="btnEditarP" id="editar" > &nbsp;&nbsp;Editar&nbsp;&nbsp; </button> <button id="eliminar" value =<?php echo $filas['id_pedido'] ?>  name ="btnEliminarP"> Eliminar </button> </td>
             </tr>
             <?php }?>
