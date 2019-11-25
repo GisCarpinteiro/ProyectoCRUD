@@ -17,7 +17,7 @@
     <?php 
         //include 'conexion.php' ;
         $con = mysqli_connect("localhost", "root", "", "helados") or die ("Error");
-        $conMostrarT = "select puesto.tipo_puesto, trabajador.id_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0;";
+        $conMostrarT = "select puesto.tipo_puesto, trabajador.id_puesto, trabajador.nombre, trabajador.apellido, trabajador.telefono, trabajador.contrasena, trabajador.id_trabajador from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto where trabajador.eliminado=0";
         //$conMostrarId = "select puesto.id_puesto from puesto inner join trabajador on puesto.id_puesto = trabajador.id_puesto";
         $conMostrarId = "select tipo_puesto from puesto where eliminado=0";
         $resultado = mysqli_query($con, $conMostrarT);
@@ -64,7 +64,19 @@
                 <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
-                        <option value=0> <?php echo $filas["tipo_puesto"]?>   </option>
+                        <?php 
+                            $revisarE = "select eliminado from puesto where id_puesto=".$filas['id_puesto'];
+                            $resRE = mysqli_query($con, $revisarE);
+                            while($revis=mysqli_fetch_assoc($resRE)){
+                                if($revis['eliminado']==0){
+                                    echo '<option value="0">'.$filas["tipo_puesto"].'</option>';
+                                }
+                                else 
+                                echo '<option value="0"> Sin puesto </option>';
+
+                            }
+                        ?>
+                        <!-- <option value=0> <?php echo $filas["tipo_puesto"]?>   </option> -->
 
                         <?php while($f=mysqli_fetch_assoc($res)) { ?>
                                 <option> <?php echo $f["tp"]?> </option> 
