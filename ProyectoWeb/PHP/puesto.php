@@ -20,8 +20,8 @@
     <form action="eventosPuesto.php" method="post">
         <ul class="opciones"> 
             <li> <button name="btnJson" type="submit" > <b> JSON </b> </button> </li>
-            <li> <button name="btnJson" type="submit" >XML </button> </li>
-            <li> <button name="btnJson" type="submit" >XSL </button> </li>
+            <li> <button name="btnXml" type="submit" >XML </button> </li>
+            <!-- <li> <button name="btnJson" type="submit" >XSL </button> </li> -->
         </ul>
     </form>
     <form action="eventosPuesto.php" method="post">

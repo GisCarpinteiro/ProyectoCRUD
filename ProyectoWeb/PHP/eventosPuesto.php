@@ -67,5 +67,39 @@
         }
 
     }
+
+    if(isset($_POST['btnXml'])){
+        $consultaMostrar = "select *from puesto where eliminado=0";
+        $puestos = mysqli_query ($con, $consultaMostrar);
+        $domPuesto = new domdocument("1.0");
+        $raiz = new domelement("puestos");
+        $raiz = $domPuesto->appendChild($raiz);
+
+       
+            foreach ($puestos as $puesto){
+                $puestosXML = new domelement("puesto");
+                $puestosXML = $raiz->appendChild($puestosXML);
+                $id_puesto = new DOMElement("id_puesto",$puesto['id_puesto']);
+                $id_puesto = $puestosXML->appendChild($id_puesto);
+                $tipo_puesto = new DOMElement("tipo_puesto",$puesto['tipo_puesto']);
+                $tipo_puesto = $puestosXML->appendChild($tipo_puesto);
+            }
+         
+        
+        $domPuesto->save("../XML/puesto.xml");
+        // $trabajador = simplexml_load_file("trabajador.xml");
+        $puestoXml = "../XML/puesto.xml";
+        $puestoXsl = "../XSL/puesto.xsl";
+        
+        $doc = new DOMDocument();
+        $xsl = new XSLTProcessor();
+
+        $doc->load($puestoXsl);
+        $xsl->importStyleSheet($doc);
+
+
+        $doc->load($puestoXml);
+        echo $xsl->transformToXML($doc);
+    }
     
 ?>
