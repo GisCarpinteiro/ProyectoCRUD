@@ -58,10 +58,10 @@
             ?>
             <tr >
                 <td><?php echo $filas['id_trabajador'] ?></td>
-                <td> <input name=<?php echo 'nombreT'.$filas['id_trabajador']?> value=<?php echo $filas['nombre']?> placeholder="Nombre" rquired> </td>
-                <td> <input name=<?php echo 'apellidoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido"> </td>
-                <td> <input name=<?php echo 'telefonoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['telefono']?> placeholder="Telefono"> </td>
-                <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia"> </td>
+                <td> <input name=<?php echo 'nombreT'.$filas['id_trabajador']?> value=<?php echo $filas['nombre']?> placeholder="Nombre" required> </td>
+                <td> <input name=<?php echo 'apellidoT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['apellido']?> placeholder="Apellido" required> </td>
+                <td> <input name=<?php echo 'telefonoT'.$filas['id_trabajador']?> type="number" value =<?php echo $filas['telefono']?> placeholder="Telefono" required> </td>
+                <td> <input name=<?php echo 'contraseniaT'.$filas['id_trabajador']?> type="text" value =<?php echo $filas['contrasena']?> placeholder="Contrasenia" required> </td>
                 <td> 
                     <select name=<?php echo 'puestoT'.$filas['id_trabajador']?>>
                         <?php 
@@ -69,10 +69,10 @@
                             $resRE = mysqli_query($con, $revisarE);
                             while($revis=mysqli_fetch_assoc($resRE)){
                                 if($revis['eliminado']==0){
-                                    echo '<option value="0">'.$filas["tipo_puesto"].'</option>';
+                                    echo '<option>'.$filas["tipo_puesto"].'</option>';
                                 }
                                 else 
-                                echo '<option value="0"> Sin puesto </option>';
+                                echo '<option> Sin puesto </option>';
 
                             }
                         ?>
@@ -90,13 +90,14 @@
             </tr>
 
             <?php } ?>
-            
+        </form>
+        <form action="eventosTrabajador.php" method="post">
             <tr>
                 <td> # </td>
-                <td> <input type="text" name="nombreTN" type="text" placeholder="Nuevo nombre"> </td>
-                <td> <input type="text" name="apellidoTN" type="text" placeholder="Nuevo apellido"> </td>
-                <td> <input type="text" name="telefonoTN" type="text" placeholder="Nuevo telefono"> </td>
-                <td> <input type="text" name="contraseniaTN" type="text" placeholder="Nueva contraseña"> </td>
+                <td> <input type="text" name="nombreTN" type="text"  required> </td>
+                <td> <input type="text" name="apellidoTN" type="text"  required> </td>
+                <td> <input  name="telefonoTN" type="number"  required> </td>
+                <td> <input type="text" name="contraseniaTN" type="text" required> </td>
                 <td> 
                     <select name="puestoTN">
                     <?php while($fila=mysqli_fetch_assoc($resId)){?>

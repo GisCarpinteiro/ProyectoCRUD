@@ -59,7 +59,7 @@
                     echo '<td> <input type="number" name= "totalP"'.$filas["id_pedido"].' value ='.$total.' readonly > </td>';
 
                 ?> -->
-                <td> <input id="total" type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?> readonly > </td>
+                <td> <input id="total" type="number" name= <?php echo 'totalP'.$filas['id_pedido'] ?>  value =<?php echo $filas['total'] ?> required > </td>
                 
                 <td> 
                     <select name=<?php echo 'trabajadorP'.$filas['id_pedido'] ?>>
@@ -68,10 +68,10 @@
                                 $verTrabajadorE = mysqli_query($con, $verTE);
                                 while($uno = mysqli_fetch_assoc($verTrabajadorE)){
                                     if($uno['eliminado']==0){
-                                        echo '<option value="0"> '.$filas['nombre'].'</option>';
+                                        echo '<option> '.$filas['nombre'].'</option>';
                                     }
                                     else
-                                        echo '<option value="0"> ND </option>';
+                                        echo '<option> ND </option>';
 
                                 }
                         ?>
@@ -117,13 +117,7 @@
             location.href ="../menu.html";
         })
 
-        $('#subtotal').change(function(){
-            var nombre = $('#subtotal').attr("name");
-            alert("name " + nombre);
-            var subtotal = $('#subtotal').val();
-            var total = parseFloat(subtotal) + parseFloat(subtotal * .16);
-            $('#total').val(total);
-        })
+
        
         $('#subtotalN').change(function(){
             var subtotal = $('#subtotalN').val();

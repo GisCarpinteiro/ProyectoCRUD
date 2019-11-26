@@ -32,17 +32,21 @@
         $nombrePuesto= $_POST['puestoT'.$idUsuario];
         //consulta checar id_puesto
         //$puestoT 
+        // echo $idUsuario.$nombreT.$apellidoT.$telefonoT.$contraseniaT.$nombrePuesto;
+
         $consultaIdPuesto ="select id_puesto from puesto where tipo_puesto='".$nombrePuesto."'";
-        $resP = mysqli_query($con, $consultaIdPuesto);
+        $resP = mysqli_query($con, $consultaIdPuesto) or die(mysqli_error($con));
         while ($puestoT=mysqli_fetch_assoc($resP)){
+
             //echo "id puesto es ".$puestoT['id_puesto'];
             $consultaEditarT = "update trabajador set nombre='".$nombreT."', apellido='".$apellidoT."', telefono='".$telefonoT."', contrasena='".$contraseniaT."', id_puesto=".$puestoT['id_puesto']." where id_trabajador=".$idUsuario;
-            $resultadoEditarT = mysqli_query($con, $consultaEditarT);
+            $resultadoEditarT = mysqli_query($con, $consultaEditarT) or die(mysqli_error($con));
 
             if($resultadoEditarT){
                 // echo "Se edito la informacion del usuario".$idUsuario;
                 // echo "<script> alert('Se modifico la info del usuario') </script>";
                 // header('Location: trabajador.php');
+                
                 echo'<script type="text/javascript">
                     alert("Información editada");
                     window.location.href="trabajador.php";
