@@ -117,15 +117,18 @@
             foreach ($usuarios as $usuario){
                 $usuario_gift = new domelement("trabajador");
                 $usuario_gift = $raiz->appendChild($usuario_gift);
-                $usuario_gift -> setAttribute("id",$usuario['id_trabajador']); 
+                $idtrabajador = new DOMElement("id",$usuario['id_trabajador']);
+                $idtrabajador = $usuario_gift->appendChild($idtrabajador);
                 $nombre = new DOMElement("nombre",$usuario['nombre']);
                 $nombre = $usuario_gift->appendChild($nombre);
-                $apellido = new domelement("apellido",$usuario['apellido']);
+                $apellido = new DOMElement("apellido",$usuario['apellido']);
                 $apellido = $usuario_gift->appendChild($apellido);
-                $telefono = new domelement("telefono",$usuario['telefono']);
-                $telefono = $usuario_gift->appendChild($apellido);
-                $contrasena = new domelement("contrasena",$usuario['contrasena']);
-                $contrasena = $usuario_gift->appendChild($apellido);
+                $telefono = new DOMElement("telefono",$usuario['telefono']);
+                $telefono = $usuario_gift->appendChild($telefono);
+                $contrasena = new DOMElement("contrasena",$usuario['contrasena']);
+                $contrasena = $usuario_gift->appendChild($contrasena);
+                $tipo_puesto = new DOMElement("tipo_puesto",$usuario['tipo_puesto']);
+                $tipo_puesto = $usuario_gift->appendChild($tipo_puesto);
             }
          
         

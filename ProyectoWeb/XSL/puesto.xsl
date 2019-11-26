@@ -3,7 +3,7 @@
 <xsl:template match="/">
 <html> 
 <body>
-  <h1>Puestos (XML y XSL) </h1>
+  <h1>Puestos</h1>
   <table border="1">
     <tr bgcolor="lightgray">
       <th style="text-align:left"> Id </th>
