@@ -7,11 +7,11 @@
   <table border="1">
     <tr bgcolor="lightgray">
       <th style="text-align:left"> Id </th>
-      <th style="text-align:left"> nombre </th>
-      <th style="text-align:left"> apellido </th>
-      <th style="text-align:left"> telefono </th>
-      <th style="text-align:left"> contrasena </th>
-      <th style="text-align:left"> puesto </th>
+      <th style="text-align:left"> Nombre </th>
+      <th style="text-align:left"> Apellido </th>
+      <th style="text-align:left"> Teléfono </th>
+      <th style="text-align:left"> Contraseña </th>
+      <th style="text-align:left"> Puesto </th>
 
 
 
